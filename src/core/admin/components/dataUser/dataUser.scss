@@ -1,0 +1,29 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.admin__users {
+  text-align: center;
+  padding: 20px 40px;
+  @include responsive(sm) {
+    display: none;
+  }
+  .admin__users--tittle {
+  }
+  .admin__users--body {
+    background-color: rgba($color: #313131, $alpha: 1);
+    .admin__users--color1 {
+      color: #fc0;
+      font-weight: bold;
+    }
+    table {
+      color: #fff;
+      font-size: 1.3rem;
+      th {
+        background-color: #004;
+        color: #f03;
+      }
+      td {
+        padding: 20px 0;
+      }
+    }
+  }
+}

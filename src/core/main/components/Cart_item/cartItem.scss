@@ -1,0 +1,208 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//     width: 84vw;
+//     top: 150px;
+//     left: 8vw;
+//   }
+#cart__item {
+  overflow: hidden;
+  transition: all 0.5s;
+  border-radius: 5px;
+  color: #001;
+  &:hover {
+    box-shadow: 0 0 3px 3px rgba($color: #000000, $alpha: 0.7),
+      0 0 6px 6px rgba($color: #000000, $alpha: 0.4);
+  }
+  .cart__img {
+    border: none;
+    img {
+      width: 100%;
+      height: 300px;
+      @include responsive(xl) {
+        height: 250px;
+      }
+      @include responsive(md) {
+        height: 280px;
+      }
+      @include responsive(sm) {
+        height: 240px;
+      }
+      object-fit: cover;
+      background-position: center;
+    }
+  }
+  .cart__body {
+    overflow: hidden;
+    font-size: 1.4rem;
+    font-weight: bold;
+    height: 90px;
+    @include responsive(xl) {
+      font-size: 1.2rem;
+    }
+    @include responsive(sm) {
+      font-size: 0.9rem;
+      height: 70px;
+    }
+    i {
+      color: #fc0;
+    }
+  }
+}
+
+#cart__item {
+  .cart__img {
+    position: relative;
+    .cart__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background-color: rgba($color: #000, $alpha: 0.3);
+      transition: all 0.5s;
+      opacity: 0;
+      z-index: 8;
+      i {
+        color: #f03;
+        font-size: 3rem;
+        border: 2px solid #fff;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 0 5px aqua;
+        transition: all 0.5s;
+      }
+    }
+    .cart__overlay {
+      position: absolute;
+      background-color: rgba($color: #001, $alpha: 0.3);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: all 0.8s;
+      transform: translateY(-100%);
+      z-index: 7;
+    }
+    .trigger__left {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 25px solid transparent;
+      border-right: 25px solid #fc0;
+      border-bottom: 25px solid transparent;
+      transform: translate(50px, -50%);
+      transition: all 1s;
+      visibility: hidden;
+      z-index: 8;
+    }
+    .trigger__right {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: 25px solid transparent;
+      border-left: 25px solid #fc0;
+      border-bottom: 25px solid transparent;
+      transform: translate(-50px, -50%);
+      transition: all 1s;
+      visibility: hidden;
+      z-index: 8;
+    }
+  }
+  .cart__body {
+    position: relative;
+    .body__text {
+      z-index: 10;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 10px;
+      .i__IMDb {
+        background-color: #f03;
+        padding: 3px 6px;
+        border-radius: 7px;
+        color: #fff !important;
+      }
+    }
+    .body__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform: translateY(100%);
+      background-color: rgb(31, 31, 31);
+      transition: all 0.5s;
+      z-index: 9;
+    }
+  }
+  &:hover {
+    .cart__icon {
+      opacity: 1;
+      i {
+        transform: scale(1.5);
+        animation: hover-icon 2s linear 0s infinite;
+      }
+    }
+    .cart__overlay {
+      transform: translateY(0);
+    }
+    .trigger__left,
+    .trigger__right {
+      transform: translate(0, -50%);
+      visibility: visible;
+    }
+    .cart__body {
+      p {
+        color: #fff;
+      }
+      .body__overlay {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+//====================================
+@keyframes hover-icon {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+// ===========dark mode===============
+.bg___dark {
+  #cart__item {
+    border: 1px solid rgba($color: #fff, $alpha: 0.5);
+    &:hover {
+      box-shadow: 0 0 3px 3px rgb(255, 180, 180),
+        0 0 6px 6px rgba($color: #fff, $alpha: 0.4);
+      .cart__body {
+        p {
+          color: #001;
+        }
+      }
+    }
+  }
+  background-color: rgb(31, 31, 31);
+  .cart__body {
+    background-color: rgb(31, 31, 31);
+    color: #fff;
+    .body__overlay {
+      background-color: rgb(233, 227, 227) !important;
+    }
+  }
+}
+// ===========dark mode===============

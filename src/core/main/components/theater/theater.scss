@@ -1,0 +1,297 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//   }
+.theater__header {
+  width: 70%;
+  margin: auto;
+  padding: 12px 0;
+  border-radius: 10px;
+  background-color: black;
+  @include responsive(md) {
+    width: 80%;
+  }
+  @include responsive(sm) {
+    width: 95%;
+  }
+  .theater__header-over {
+    background-image: linear-gradient(
+      to top,
+      rgb(255, 90, 90),
+      rgb(90, 90, 247)
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    h1 {
+      font-weight: bolder;
+      font-size: 3rem;
+    }
+  }
+  // animation: test 5s linear infinite;
+  // @keyframes test {
+  //   0% {
+  //     filter: hue-rotate(0deg);
+  //   }
+  //   100% {
+  //     filter: hue-rotate(360deg);
+  //   }
+  // }
+}
+.theater__page {
+  padding: 20px 0 30px;
+  .theater__content {
+    width: 70%;
+    @include responsive(xl) {
+      width: 70%;
+    }
+    @include responsive(md) {
+      width: 80%;
+    }
+    @include responsive(sm) {
+      width: 90%;
+    }
+    margin: auto;
+    display: grid;
+    grid-template-columns: 10% 30% 60%;
+    @include responsive(xl) {
+      grid-template-columns: 12% 45% 43%;
+    }
+    @include responsive(md) {
+      grid-template-columns: 12% 40% 48%;
+    }
+    @include responsive(sm) {
+      display: flex;
+      flex-direction: column;
+    }
+    .theater1 {
+      height: 600px;
+      @include responsive(md) {
+        height: 540px;
+      }
+      border: 1px solid #000;
+      display: grid;
+      grid-template-columns: 100%;
+      @include responsive(sm) {
+        grid-template-columns: repeat(6, 1fr);
+        height: 90px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .theater1-logo {
+        text-align: center;
+        padding-top: 20px;
+        height: 100px;
+        @include responsive(md) {
+          height: 90px;
+        }
+        img {
+          width: 50%;
+          object-fit: cover;
+          background-position: center;
+        }
+        p {
+          font-weight: bold;
+        }
+        .hr__logo {
+          width: 75%;
+          border-top: 0.5px solid #000;
+          margin: auto;
+        }
+        &:hover {
+          background-color: rgba($color: #f00, $alpha: 0.2);
+        }
+      }
+      .active__logo {
+        background-color: rgba($color: #f00, $alpha: 0.2);
+        .hr__logo {
+          border-top: 0.5px solid aqua;
+        }
+      }
+    }
+    .theater2 {
+      height: 600px;
+      @include responsive(md) {
+        height: 540px;
+      }
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #000;
+      @include responsive(sm) {
+        height: 250px;
+        overflow-y: scroll;
+        margin: 20px 0;
+        border-radius: 20px;
+      }
+      .theater2-item {
+        border-bottom: 0.5px solid rgba($color: #000000, $alpha: 0.5);
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        height: 100px;
+        &:hover {
+          background-color: rgba($color: #002, $alpha: 0.2);
+        }
+        @include responsive(md) {
+          height: 90px;
+        }
+        @include responsive(sm) {
+          margin-bottom: 20px;
+          border-top: 0.5px solid rgba($color: #000000, $alpha: 0.5);
+          margin: 10px 0;
+        }
+        .theater2-img {
+          margin: 0 10px;
+          @include responsive(sm) {
+            margin: 0;
+          }
+          img {
+            width: 100px;
+            height: 70px;
+            background-size: cover;
+            background-position: center;
+            @include responsive(md) {
+              width: 70px;
+              height: 50px;
+            }
+            @include responsive(sm) {
+              width: 80px;
+              height: 60px;
+              margin-right: 20px;
+            }
+          }
+        }
+        .theater2-text {
+          p {
+            font-weight: bold;
+          }
+          p.theater2-text-1 {
+            font-weight: 900;
+          }
+        }
+      }
+      .theater2-active {
+        background-color: rgba($color: #002, $alpha: 0.2);
+      }
+    }
+    .theater3 {
+      max-height: 600px;
+      @include responsive(md) {
+        max-height: 540px;
+      }
+      @include responsive(sm) {
+        max-height: 250px;
+        border-radius: 20px;
+      }
+      overflow-y: scroll;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-row-gap: 40px;
+      border: 1px solid #000;
+      //padding-top: 20px;
+      .theater3-item {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        border-bottom: 0.5px solid rgba($color: #000, $alpha: 1);
+        .item-img {
+          display: flex;
+          //justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          img {
+            width: 50px;
+            height: 65px;
+            object-fit: cover;
+            background-position: center;
+          }
+          p {
+            font-weight: bold;
+          }
+        }
+        .item-time {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          grid-gap: 10px;
+          @include responsive(xl) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+          @include responsive(md) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+          p {
+            background-color: #fc0;
+            color: #000;
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bold;
+            &:hover {
+              background-color: #f03;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//==============dark-mode==================
+.bg___dark {
+  .theater__header {
+    box-shadow: 0 0 2px 2px aqua;
+  }
+  .theater__page {
+    .theater1 {
+      border: 1px solid #fff;
+      .theater1-logo {
+        p {
+          color: aqua;
+        }
+        .hr__logo {
+          border-top: 0.5px solid rgba($color: #fff, $alpha: 0.3);
+        }
+      }
+      .theater1-logo.active__logo {
+        background-color: rgba($color: #fff, $alpha: 0.5);
+        p {
+          color: #fc0;
+        }
+        .hr__logo {
+          border-top: 0.5px solid #f00;
+        }
+      }
+    }
+    .theater2 {
+      border: 1px solid #fff;
+      .theater2-item {
+        border-color: rgba($color: #fff, $alpha: 0.4);
+        &:hover {
+          background-color: rgba($color: rgb(165, 241, 225), $alpha: 0.2);
+        }
+        .theater2-text {
+          p {
+            color: #fff;
+          }
+        }
+      }
+      .theater2-active {
+        background-color: rgba($color: rgb(165, 241, 225), $alpha: 0.2);
+      }
+    }
+    .theater3 {
+      border: 1px solid #fff;
+      .th3-text {
+        color: aqua;
+      }
+      .item-img {
+        p {
+          color: #fff;
+        }
+      }
+      .item-time {
+      }
+    }
+  }
+}
+//==============dark-mode==================

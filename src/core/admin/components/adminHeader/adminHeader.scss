@@ -1,0 +1,153 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//   }
+#checkDasboard {
+  display: none;
+}
+.adminHeader {
+  width: 200px;
+  height: 100vh;
+  transition: all 0.5s;
+  background-color: rgba($color: #2b2525, $alpha: 1);
+  .adminHeader__icon {
+    text-align: right;
+    padding: 10px;
+    i.fa-align-justify {
+      font-size: 3rem;
+      color: #fc0;
+      &:hover {
+        color: #f02;
+      }
+    }
+  }
+  .adminHeader__user {
+    text-align: center;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid aqua;
+      box-shadow: 0 0 2px 3px rgba($color: #fff, $alpha: 0.6);
+    }
+    p {
+      font-size: 1.6rem;
+      color: #fc0;
+    }
+  }
+  .adminHeader__item {
+    color: #fc0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 20px 10px;
+
+    i {
+      margin-right: 10px;
+    }
+    .adminHeader__item-text {
+      color: #fc0;
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: rgba($color: #fff, $alpha: 1);
+      border-radius: 40px 0 0 40px;
+      color: #f02;
+      .adminHeader__item-text {
+        color: #f02;
+      }
+    }
+  }
+  @include responsive(md) {
+    width: 80px;
+    text-align: center;
+    .adminHeader__icon {
+      text-align: center;
+      i.fa-align-justify {
+        color: #f03;
+      }
+    }
+    .adminHeader__user {
+      margin-bottom: 40px;
+      @include responsive(sm) {
+        margin-bottom: 20px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    .adminHeader__item {
+      padding: 25px 10px;
+      @include responsive(sm) {
+        padding: 15px;
+      }
+      i {
+        font-size: 3rem;
+      }
+      .adminHeader__item-text {
+        display: none;
+      }
+    }
+  }
+}
+#checkDasboard:checked ~ .adminHeader {
+  width: 80px;
+  @include responsive(md) {
+    width: 200px;
+  }
+  text-align: center;
+  .adminHeader__icon {
+    text-align: center;
+    i.fa-align-justify {
+      color: #f03;
+    }
+  }
+  .adminHeader__user {
+    margin-bottom: 40px;
+    img {
+      width: 50px;
+      height: 50px;
+      @include responsive(md) {
+        width: 100px;
+        height: 100px;
+      }
+      @include responsive(sm) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+  .adminHeader__item {
+    padding: 25px 10px;
+    @include responsive(md) {
+      text-align: left;
+    }
+    @include responsive(sm) {
+      padding: 15px 10px;
+    }
+    i {
+      font-size: 3rem;
+      @include responsive(md) {
+        font-size: 1.6rem;
+        margin-right: 10px;
+      }
+      @include responsive(sm) {
+        font-size: 1.3rem;
+        margin-right: 10px;
+      }
+    }
+    .adminHeader__item-text {
+      display: none;
+      @include responsive(md) {
+        display: inline;
+      }
+    }
+  }
+}

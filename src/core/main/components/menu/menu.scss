@@ -1,0 +1,282 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+#check__menu {
+  display: none;
+}
+.menu__page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  //--------
+  z-index: 9999999999999999;
+  //--------------
+  @include responsive(full-hd) {
+    right: 280px;
+  }
+  @include responsive(xxl) {
+    right: 0;
+  }
+  overflow: hidden;
+}
+.menu__page--content {
+  background-color: transparent;
+  label {
+    height: 65px;
+    @include responsive(sm) {
+      height: 55px;
+    }
+    i {
+      font-size: 3rem;
+      color: #000;
+      line-height: 65px;
+      transition: all 0.25s;
+      filter: drop-shadow(2px 2px 2px rgba(255, 0, 51, 0.473));
+      transition: all 0.3s;
+      @include responsive(sm) {
+        color: azure;
+      }
+      &:hover {
+        //transform: rotate(-90deg);
+        color: #f03;
+        filter: drop-shadow(2px 2px 2px rgba(10, 3, 4, 0.473));
+      }
+    }
+    i.fa-times-circle {
+      color: #fc0;
+      &:hover {
+        color: aqua;
+      }
+    }
+  }
+}
+.menu__page--body {
+  color: #000;
+  width: 70px;
+  height: 260px;
+  position: relative;
+  label {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transition: all 1s;
+    transform: translateX(-50%);
+    i.fa-times-circle {
+      visibility: hidden;
+    }
+  }
+  @include responsive(sm) {
+    height: 0px;
+    width: 0px;
+    padding: 0 30px;
+    //margin-top: -8px;
+  }
+  transition: all 1s;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(231, 231, 231),
+    rgb(135, 218, 229),
+    rgb(43, 48, 71)
+  );
+  padding-top: 10px;
+  text-align: center;
+  transition: all 1s;
+  .menu__page--text {
+    img {
+      border-radius: 50%;
+      border: 2px solid #000;
+      box-shadow: 0 0 2px 4px rgba($color: rgb(22, 22, 22), $alpha: 0.3);
+      margin-bottom: 5px;
+    }
+    i.fa-user-circle {
+      font-size: 5rem;
+    }
+  }
+}
+//=========class btn-to-admin===========================
+.admin__to--page {
+  display: none;
+}
+//=========class btn-setting============================
+.btn.btn__setting {
+  //======
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  //======
+  border: 2px solid #000;
+  box-shadow: 0 0 2px 3px rgba($color: #fff, $alpha: 0.5);
+  border-radius: 20px;
+  width: 65px;
+  height: 30px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: block;
+  i {
+    font-size: 2rem;
+    display: none;
+  }
+  span {
+    font-size: 0.9rem;
+    display: inline;
+  }
+  &:hover {
+    background-color: #000;
+    color: #fc0;
+  }
+}
+//===============dark-mode-switch=======================
+#switch-dark-mode {
+  position: relative;
+  background-image: url("../../../../access/images/image/sun.jpg");
+  background-size: cover;
+  border: 2px solid #000;
+  box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5);
+  border-radius: 20px;
+  width: 65px;
+  height: 30px;
+  margin: 0 auto;
+  transition: all 0.7s;
+  div.switch-ovelay {
+    position: absolute;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    transition: all 1s;
+    .switch--sun,
+    .switch--moon {
+      font-size: 1.9rem;
+      line-height: 1.9rem;
+    }
+    .switch--moon {
+      display: none;
+    }
+  }
+}
+//==========checked=====================================
+#check__menu:checked ~ .menu__page--content {
+  background-color: rgba($color: #003, $alpha: 1);
+  label {
+    i.fa-align-right {
+      opacity: 0;
+    }
+  }
+  .menu__page--body {
+    width: 300px;
+    height: 100vh;
+    label {
+      top: -70px;
+      @include responsive(sm) {
+        top: -60px;
+      }
+      i.fa-times-circle {
+        visibility: visible;
+      }
+    }
+    @include responsive(sm) {
+      padding-top: 20px;
+      width: 100vw;
+      height: 100vh;
+    }
+    .menu__page--text {
+      i.fa-user-circle {
+        font-size: 10rem;
+      }
+      img {
+        width: 100px;
+        @include responsive(sm) {
+          width: 70px;
+        }
+      }
+      h6 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 20px auto;
+      }
+      .admin__to--page {
+        display: block;
+      }
+      .btn.btn__setting {
+        width: 150px;
+        height: 50px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        @include responsive(sm) {
+          margin-bottom: 7px;
+        }
+        i {
+          font-size: 2rem;
+          display: inline;
+        }
+        span {
+          font-size: 1.6rem;
+          display: inline;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  #switch-dark-mode {
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    div.switch-ovelay {
+      width: 2.5rem;
+      height: 2.5rem;
+      .switch--sun,
+      .switch--moon {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+      }
+    }
+  }
+}
+//=============bg-dark==================================
+.bg___dark {
+  #switch-dark-mode {
+    background-image: url("../../../../access/images/image/moon.png");
+    div.switch-ovelay {
+      left: 30px;
+      .switch--sun {
+        display: none;
+      }
+      .switch--moon {
+        display: block;
+      }
+    }
+  }
+  #check__menu:checked ~ .menu__page--content {
+    #switch-dark-mode {
+      div.switch-ovelay {
+        left: 95px;
+      }
+    }
+  }
+  .menu__page--content {
+    label {
+      i {
+        color: #fc0;
+      }
+    }
+  }
+  .menu__page--body {
+    color: #fc0;
+    background-image: linear-gradient(
+      to bottom,
+      #000,
+      rgb(40, 47, 82),
+      rgb(252, 187, 68)
+    );
+    .menu__page--text {
+      img {
+        border: 2px solid aqua;
+        box-shadow: 0 0 2px 4px rgba($color: #fff, $alpha: 0.3);
+      }
+    }
+  }
+}

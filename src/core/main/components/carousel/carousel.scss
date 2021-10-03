@@ -1,0 +1,199 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.carousel {
+  #my_carousel {
+    .carousel-indicators {
+      li {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin: 0 10px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        transition: all 0.7s;
+        @include responsive(sm) {
+          width: 1rem;
+          height: 1rem;
+          margin: 0 5px;
+        }
+      }
+      li.active {
+        background-color: aqua;
+        border: 2px solid #000;
+        border-radius: 10px;
+        width: 2.8rem;
+        @include responsive(sm) {
+          width: 1.3rem;
+        }
+      }
+    }
+    .carousel-inner {
+      border-radius: 0 0 50px 50px;
+      //=======
+      // -webkit-background-clip: padding-box;
+      // -moz-background-clip: padding;
+      // background-clip: padding-box;
+      //=======
+      overflow: hidden;
+      position: relative;
+      .carousel-item {
+        height: 623px;
+        @include responsive(xl) {
+          height: 600px;
+        }
+        @include responsive(md) {
+          height: 500px;
+        }
+        @include responsive(sm) {
+          padding-top: 60px;
+          height: 300px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          background-position-y: center;
+          border-radius: 0 0 50px 50px;
+        }
+        .btn__carousel {
+          font-weight: bolder;
+          border-radius: 20px;
+          padding: 8px 15px;
+          opacity: 0;
+          box-shadow: 0 0 3px 3px rgba($color: #f00, $alpha: 0.7);
+          transition: all 0.6s;
+          //======
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          //======
+          @include responsive(xl) {
+            opacity: 1;
+          }
+          @include responsive(sm) {
+            padding: 4px 8px;
+          }
+          &:hover {
+            background-color: #002;
+            color: aqua;
+            box-shadow: 0 0 3px 4px aqua;
+          }
+        }
+        .overlay__carousel {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: 2px solid #000;
+          background-image: linear-gradient(
+            to left,
+            rgb(255, 214, 30),
+            rgb(30, 255, 86)
+          );
+          border-radius: 50%;
+          padding: 15px;
+
+          @include responsive(sm) {
+            padding: 5px;
+          }
+          box-shadow: 0 0 0 10px #ffde0080, 0 0 0 20px #ffde0040,
+            0 0 0 30px #ffde0020, 0 0 0 40px #ffde0010, 0 0 0 50px #ffde0000,
+            0 0 20px 50px #ffde0010;
+          animation: sunrise 2s infinite linear forwards,
+            rays 2s 2s infinite linear, test 4s ease infinite;
+          .overlay__carousel--content {
+            background-color: rgba($color: #797575, $alpha: 0.4);
+            padding: 10px;
+            @include responsive(sm) {
+              padding: 5px;
+            }
+            border-radius: 50%;
+            i {
+              color: rgba($color: #003, $alpha: 0.7);
+              font-size: 5rem;
+              transition: all 0.5s;
+
+              @include responsive(sm) {
+                font-size: 2rem;
+              }
+            }
+            &:hover {
+              background-color: #003;
+              i {
+                color: #fff;
+              }
+            }
+          }
+        }
+        &:hover {
+          .btn__carousel {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    i.fa-angle-double-left,
+    i.fa-angle-double-right {
+      font-size: 4rem;
+      padding: 7px 7px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      @include responsive(sm) {
+        font-size: 2rem;
+      }
+      &:hover {
+        background-color: rgba($color: #fff, $alpha: 0.5);
+        color: #f00;
+      }
+    }
+  }
+}
+
+@keyframes sunrise {
+  0% {
+    box-shadow: none;
+  }
+}
+
+@keyframes rays {
+  0% {
+    box-shadow: 0 0 0 0 #ffde0080, 0 0 0 10px #ffde0080, 0 0 0 20px #ffde0040,
+      0 0 0 30px #ffde0020, 0 0 0 40px #ffde0010, 0 0 20px 50px #ffde0010;
+  }
+  100% {
+    box-shadow: 0 0 0 10px #ffde0080, 0 0 0 20px #ffde0040, 0 0 0 30px #ffde0020,
+      0 0 0 40px #ffde0010, 0 0 0 50px #ffde0000, 0 0 20px 50px #ffde0010;
+  }
+}
+
+//==============================
+.background__modal {
+  background-color: rgba($color: #000, $alpha: 0.9);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+  z-index: 99999999999999;
+}
+
+@keyframes test {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+// ===========dark mode===============
+.bg___dark {
+  .carousel {
+    #my_carousel {
+      .carousel-inner {
+        box-shadow: 0 0 2px 3px rgb(255, 180, 180);
+      }
+    }
+  }
+}
+// ===========dark mode===============

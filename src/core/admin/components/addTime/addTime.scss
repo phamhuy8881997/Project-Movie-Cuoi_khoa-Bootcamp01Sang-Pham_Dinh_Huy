@@ -1,0 +1,87 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.add__time {
+  background-image: linear-gradient(
+    to right,
+    rgb(250, 95, 95),
+    rgb(95, 95, 250)
+  );
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  .add__time1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    @include responsive(xl) {
+      width: 60%;
+    }
+    @include responsive(sm) {
+      width: 95%;
+    }
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    padding: 30px 5%;
+    text-align: center;
+    border-radius: 10px;
+    .add__time-title {
+      padding: 30px 0;
+      h1 {
+        color: #fff;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+.add__time {
+  .add__time-input {
+    .add__time-input1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 15px 0;
+      p {
+        color: #fff;
+        font-size: 1.6rem;
+        font-weight: bolder;
+      }
+      input {
+        font-size: 1.6rem;
+        border-radius: 20px;
+        padding-left: 10px;
+        outline: none;
+        @include responsive(sm) {
+          width: 60%;
+        }
+      }
+    }
+    .add__time-input2 {
+      display: flex;
+      flex-direction: column;
+      p {
+        font-size: 1.6rem;
+        color: #fff;
+      }
+      select {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+    }
+  }
+  .add__time-btn {
+    padding: 30px 0;
+    button {
+      padding: 10px 25px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      border-radius: 30px;
+      border: 3px solid transparent;
+      &:hover {
+        background-color: #000;
+        color: aqua;
+        border-color: aqua;
+      }
+    }
+  }
+}

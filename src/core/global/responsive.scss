@@ -1,0 +1,29 @@
+// *************************mixin*****************************
+// **********************Responsive***************************
+// responsive
+$breakpoint: (
+  "full-hd": 1920px,
+  "xxl": 1366px,
+  "xl": 1150px,
+  "lg": 993px,
+  "lg1": 800px,
+  "md": 769px,
+  "md1": 600px,
+  "sm": 576.5px,
+  "xs": 400px,
+);
+// responsive
+@mixin responsive($screen) {
+  @if (map-has-key($map: $breakpoint, $key: $screen)) {
+    $value: map-get(
+      $map: $breakpoint,
+      $key: $screen,
+    );
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn ('screen ko hop le');
+  }
+}
+// **********************Responsive*************************

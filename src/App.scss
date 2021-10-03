@@ -1,0 +1,79 @@
+@import "./core/global/responsive.scss";
+.App {
+  max-width: 1360px;
+  margin: auto;
+  background-color: beige;
+}
+.bg___dark {
+  background-color: rgb(31, 31, 31) !important;
+}
+/* // ========================= */
+#scrollAdmin::-webkit-scrollbar {
+  width: 12px;
+  height: 34px;
+  background-color: transparent;
+  @include responsive(sm) {
+    width: 4px;
+    height: 20px;
+  }
+}
+#scrollAdmin::-webkit-scrollbar-thumb {
+  background-color: #fc0;
+  @include responsive(sm) {
+    background-color: #f03;
+  }
+}
+#scrollAdmin::-webkit-scrollbar-track {
+  background-color: #5f58589d;
+}
+/* // =========================== */
+//======set-up-css-toastify=========
+.Toastify {
+  // z-index: 999999999999999999999999999999999999999999999 !important;
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+}
+.Toastify__toast-container {
+  width: 40% !important;
+  @include responsive(md) {
+    width: 60% !important;
+  }
+  @include responsive(sm) {
+    width: 100% !important;
+  }
+  .Toastify__toast-body {
+    text-align: center !important;
+    font-size: 1.6rem !important;
+    font-weight: bold !important;
+  }
+}
+//======set-up-css-toastify=========
+//=======scroll-to-top==============
+.scroll-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  background-color: transparent;
+  @include responsive(sm) {
+    display: none;
+  }
+  .scroll-to-top__content {
+    background-image: linear-gradient(to top left, #f03, #00f);
+    border-radius: 5px;
+    padding: 10px;
+    transform: rotate(45deg);
+    i {
+      font-size: 3rem;
+      color: white;
+      transform: rotate(-45deg);
+    }
+    &:hover {
+      i {
+        color: #fc0;
+      }
+    }
+  }
+}
+//=======scroll-to-top==============

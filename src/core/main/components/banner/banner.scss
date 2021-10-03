@@ -1,0 +1,112 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//     width: 84vw;
+//     top: 150px;
+//     left: 8vw;
+//   }
+.banner__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin: 60px auto;
+  @include responsive(xl) {
+    width: 60%;
+    margin: 40px auto;
+  }
+  @include responsive(md) {
+    width: 80%;
+  }
+  @include responsive(sm) {
+    width: 90%;
+  }
+  p {
+    font-size: 1.8rem;
+    @include responsive(sm) {
+      font-size: 1.2rem;
+    }
+    font-weight: bolder;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 0%;
+      bottom: -5px;
+      background-color: #f03;
+      left: 0;
+      transition: all 0.5s;
+    }
+    &:hover {
+      color: #f03;
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  .banner__active {
+    color: #f03;
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.banner__main {
+  width: 70%;
+  margin: 40px auto;
+  font-size: 3rem;
+  @include responsive(md) {
+    width: 80%;
+  }
+  @include responsive(sm) {
+    width: 94%;
+  }
+  .banner__item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    @include responsive(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include responsive(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .banner__btn {
+    button {
+      padding: 10px 25px;
+      font-weight: bold;
+      box-shadow: 0 3px 3px 3px rgba($color: #000000, $alpha: 0.5);
+      &:hover {
+        box-shadow: 0 0 3px 3px rgba($color: #000000, $alpha: 0.5);
+      }
+    }
+  }
+}
+
+// ===========dark mode===============
+.bg___dark {
+  .banner__header {
+    p {
+      color: cornsilk;
+    }
+    .banner__active {
+      color: #f03;
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  .banner__btn {
+    button {
+      box-shadow: 0 3px 3px 3px rgba($color: #fff, $alpha: 0.5);
+      &:hover {
+        box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5);
+      }
+    }
+  }
+}
+// ===========dark mode===============
